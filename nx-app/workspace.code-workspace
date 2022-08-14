@@ -1,0 +1,45 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "blog-lab"
+    }
+  ],
+  "settings": {
+    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.cursorStyle": "block",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.foldingImportsByDefault": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "auto-close-tag.disableOnLanguage": [
+      "typescript"
+    ],
+    "editor.fontLigatures": true,
+    "workbench.colorTheme": "One Dark Pro",
+    "window.title": "${dirty}${activeEditorMedium}${separator}${remoteName}"
+  },
+  "extensions": {
+    "recommendations": [
+      "Angular.ng-template",
+      "christian-kohler.npm-intellisense",
+      "christian-kohler.path-intellisense",
+      "dbaeumer.vscode-eslint",
+      "EditorConfig.EditorConfig",
+      "eg2.vscode-npm-script",
+      "esbenp.prettier-vscode",
+      "lfs.vscode-emacs-friendly",
+      "MS-CEINTL.vscode-language-pack-ja",
+      "nrwl.angular-console",
+      "rbbit.typescript-hero",
+      "steoates.autoimport",
+      "streetsidesoftware.code-spell-checker",
+      "Vue.volar",
+      "Zignd.html-css-class-completion"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+version: '3.2'
+services:
+  nx-app:
+    image: "kokouu/nodejs-dev:v5"
+    container_name: nx-app
+    working_dir: /usr/workspace
+    volumes:
+      - type: bind
+        source: ./nx-app
+        target: /usr/workspace
+      - type: volume
+        source: nx-app-node_modules
+        target: /usr/workspace/blog-lab/node_modules
+        volume:
+          nocopy: true
+    tty: true
+  dotnet-app:
+    image: "kokouu/dotnet-dev:v5"
+    container_name: dotnet-app
+    working_dir: /usr/workspace
+    volumes:
+      - type: bind
+        source: ./dotnet-app
+        target: /usr/workspace
+      - type: volume
+        source: nuget-packages
+        target: /root/.nuget/packages
+        volume:
+          nocopy: true
+    tty: true
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-CU16-GDR1-ubuntu-20.04
+    container_name: db
+    volumes:
+      - type: volume
+        source: db-data
+        target: /var/opt/mssql
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: wg4IwewElAupp
+      MSSQL_PID: Developer
+    ports:
+      - "1433:1433"
+volumes:
+  db-data:
+  nuget-packages:
+  nx-app-node_modules:

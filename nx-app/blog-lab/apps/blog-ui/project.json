@@ -1,0 +1,102 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/blog-ui/src",
+  "prefix": "blog-lab",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/blog-ui",
+        "index": "apps/blog-ui/src/index.html",
+        "main": "apps/blog-ui/src/main.ts",
+        "polyfills": "apps/blog-ui/src/polyfills.ts",
+        "tsConfig": "apps/blog-ui/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/blog-ui/src/favicon.ico",
+          "apps/blog-ui/src/assets"
+        ],
+        "styles": [
+          "apps/blog-ui/src/styles.scss"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/blog-ui/src/environments/environment.ts",
+              "with": "apps/blog-ui/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "blog-ui:build:production"
+        },
+        "development": {
+          "browserTarget": "blog-ui:build:development",
+          "hmr": true,
+          "liveReload": true,
+          "poll": 500
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "blog-ui:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/blog-ui/**/*.ts",
+          "apps/blog-ui/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/blog-ui"
+      ],
+      "options": {
+        "jestConfig": "apps/blog-ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
